@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-j8*dj9u0f(&90=)!vhtp&s-4rnsix6+np6k11gvix8#o_-c5g('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['brandisebox.com', 'www.brandisebox.com', '89.116.20.128' , '*']
 
 
 # Application definition
@@ -77,10 +77,21 @@ WSGI_APPLICATION = 'brandise_box.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'brandise_box',
+        'USER': 'brandise_box',
+        'PASSWORD': 'Ayushman@23122003',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
