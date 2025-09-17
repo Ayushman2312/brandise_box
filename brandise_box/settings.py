@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'brandise_box.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'brandise_box',
+        'NAME': 'brandise_box_db',
         'USER': 'brandise_box',
         'PASSWORD': 'Ayushman@23122003',
         'HOST': 'localhost',
