@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-j8*dj9u0f(&90=)!vhtp&s-4rnsix6+np6k11gvix8#o_-c5g(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['brandisebox.com', 'www.brandisebox.com', '89.116.20.128' , '*']
+ALLOWED_HOSTS = ['brandisebox.com', 'www.brandisebox.com', '89.116.20.128']
 
 
 # Application definition
