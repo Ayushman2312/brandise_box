@@ -1,0 +1,70 @@
+/* Base */
+:root{--bg:#ffffff;--fg:#111827;--muted:#6b7280;--card:#ffffff;--cardBorder:rgba(15,23,42,.08)}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;background:radial-gradient(900px 450px at 50% -20%,#e7e9ee 0%,#f2f3f6 60%,#fafafa 100%),#fafafa;color:var(--fg)}
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+/* Layout */
+.nx-bg{position:fixed;inset:0;z-index:0;overflow:hidden}
+#blob-canvas{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:55vmin;height:55vmin;pointer-events:none;filter:blur(6px) saturate(140%);will-change:transform}
+.nx-blur{position:absolute;inset:-40px;backdrop-filter:blur(26px)}
+.nx-root{min-height:100dvh;display:flex;flex-direction:column;justify-content:space-between;padding:24px}
+.nx-header{position:relative;display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1100px;margin:0 auto;z-index:1}
+.nx-byvercel{position:static;color:#6b7280;text-decoration:none;font-size:clamp(14px,1.2vw,16px);display:inline-flex;align-items:center}
+.nx-byvercel img{height:36px;width:auto;display:block}
+
+/* Chip */
+.nx-chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.6);border:1px solid var(--cardBorder);padding:8px 12px;margin:0;font-weight:400;border-radius:9999px;font-size:clamp(12px,1.1vw,14px);color:#111827}
+.nx-chip1{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.6);border:1px solid var(--cardBorder);padding:8px 12px;margin:0;font-weight:400;border-radius:9999px;font-size:clamp(12px,1.1vw,14px);color:#111827}
+.nx-chip code{font-family:ui-monospace,Menlo,Consolas,monospace;background:#000;color:#fff;border-radius:6px;padding:2px 6px;font-size:clamp(11px,1vw,13px)}
+.nx-chip1 code{font-family:ui-monospace,Menlo,Consolas,monospace;background:#000;color:#fff;border-radius:6px;padding:2px 6px;font-size:clamp(11px,1vw,13px)}
+.nx-chip--mobile{display:none}
+
+/* Hero */
+.nx-hero{display:flex;align-items:center;justify-content:center;padding:80px 0;z-index:1}
+.nx-hero-content{text-align:center}
+.nx-logo{font-size:clamp(28px,6vw,48px);font-weight:600;color:#111827;font-family:'Quicksand', sans-serif;}
+
+/* Links grid */
+.nx-links{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin:0 auto;width:100%;max-width:1100px;padding:8px 0 8px;z-index:1}
+.nx-card{display:block;background:var(--card);border:1px solid var(--cardBorder);padding:22px 24px;border-radius:16px;text-decoration:none;color:var(--fg);transition:transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease;box-shadow:0 1px 0 rgba(2,6,23,.06)}
+.nx-card:hover{transform:translateY(-2px);border-color:rgba(2,6,23,.14);background:#ffffff;box-shadow:0 10px 20px rgba(2,6,23,.08),0 4px 8px rgba(2,6,23,.05)}
+.nx-card h3{margin:0 0 8px 0;font-size:clamp(16px,2.2vw,18px);display:flex;align-items:center;gap:6px}
+.nx-card h3 span{transition:transform .25s ease}
+.nx-card:hover h3 span{transform:translateX(4px)}
+.nx-card p{margin:0;color:var(--muted);line-height:1.6;font-size:clamp(12px,2vw,13px)}
+
+/* Slider dots (hidden by default, shown on mobile) */
+.nx-slider-dots{display:none;gap:10px;justify-content:center;align-items:center;margin:8px auto 0;width:100%;max-width:1100px}
+.nx-dot{appearance:none;border:1px solid var(--cardBorder);background:#fff;color:#111827;border-radius:50%;width:12px;height:12px;padding:0;cursor:pointer;box-shadow:0 1px 0 rgba(2,6,23,.06);transition:background .2s ease, border-color .2s ease, transform .2s ease}
+.nx-dot.is-active{background:#111827;border-color:#111827}
+
+/* Responsive */
+@media (max-width: 1024px){
+  .nx-links{grid-template-columns:repeat(2,1fr)}
+  #blob-canvas{width:48vmin;height:48vmin;filter:blur(8px) saturate(130%)}
+  .nx-blur{backdrop-filter:blur(18px)}
+}
+@media (max-width: 640px){
+  .nx-root{padding:16px;padding-bottom:40px}
+  .nx-hero{padding:56px 0 24px}
+  .nx-logo{font-size:clamp(38px,8.5vw,68px)}
+  .nx-header .nx-chip{display:none}
+  .nx-chip--mobile{display:inline-flex;margin-top:1px;font-size:clamp(13px,1.2vw,15px)}
+  .nx-byvercel{margin-left:auto;transform:scale(0.8)}
+  /* Mobile horizontal slider: two cards visible, snap one by one */
+  .nx-links{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:16px;padding-bottom:0;scroll-behavior:smooth}
+  .nx-links::-webkit-scrollbar{display:none}
+  .nx-card{flex:0 0 calc(50% - 8px);scroll-snap-align:start}
+  /* Fix dots at the bottom center */
+  .nx-slider-dots{display:flex;position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));z-index:3;width:auto;max-width:none}
+  /* Soften blob on phones to avoid overpowering layout */
+  #blob-canvas{width:62vw;height:62vw;filter:blur(10px) saturate(120%);opacity:.9}
+  .nx-blur{backdrop-filter:blur(12px)}
+}
+
+
+@media (min-width: 1025px){
+  .nx-card{padding:10px 24px}
+}
+

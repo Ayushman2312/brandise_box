@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Our Work</title>
+    {% load static %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/our_work.css' %}?v={% now 'U' %}">
+    <style>
+        .kanit{
+            font-family: 'Kanit', sans-serif;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <section class="work-hero" aria-label="This is how we work">
+        <div class="work-hero__inner">
+            <p class="work-hero__kicker">THIS IS OUR</p>
+            <div class="work-hero__rows" aria-hidden="true">
+                <div class="work-hero__row">
+                    <span class="work-hero__big kanit" style="text-shadow: 12px 12px 20px rgba(0,0,0,0.5);">W</span>
+                    <span class="work-hero__big kanit" style="text-shadow: 12px 12px 20px rgba(0,0,0,0.5);">O</span>
+                </div>
+                <div class="work-hero__row1">
+                    <span class="work-hero__big1 kanit r-text" style="text-shadow: 12px 12px 20px rgba(0,0,0,0.5);">R</span>
+                    <span class="work-hero__big1 kanit this-text" style="text-shadow: 12px 12px 20px rgba(0,0,0,0.5);">K</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Steps + Benefits (glassmorphism over blurred blue) -->
+    <section class="process-benefits" aria-label="Effortless process and benefits">
+        <div class="pb__blue-bg" aria-hidden="true"></div>
+        <div class="pb__container">
+            <div class="pb__header">
+                <div class="pb__eyebrow">
+                    <span class="dot"></span>
+                    <span>4 SIMPLE STEPS</span>
+                </div>
+                <h2 class="pb__title">Effortless Process,
+                    <br>Continuous Supply</h2>
+            </div>
+
+            <div class="pb__cards">
+                <article class="pb-card">
+                    <div class="pb-card__num">01.</div>
+                    <h3 class="pb-card__title">Choose a
+                        <br>Plan</h3>
+                    <p class="pb-card__text">Select the flexible or premium plan that suits your business needs.</p>
+                </article>
+
+                <article class="pb-card">
+                    <div class="pb-card__num">02.</div>
+                    <h3 class="pb-card__title">Subscribe
+                        <br>Instantly</h3>
+                    <p class="pb-card__text">Activate your subscription with just a click – no forms, no hassle.</p>
+                </article>
+
+                <article class="pb-card">
+                    <div class="pb-card__num">03.</div>
+                    <h3 class="pb-card__title">Get Tailored
+                        <br>Solutions</h3>
+                    <p class="pb-card__text">Receive personalized products and support for your operations.</p>
+                </article>
+
+                <article class="pb-card">
+                    <div class="pb-card__num">04.</div>
+                    <h3 class="pb-card__title">Receive Your
+                        <br>Supplies</h3>
+                    <p class="pb-card__text">Sit back as your chemicals are delivered on time, every time.</p>
+                </article>
+            </div>
+
+            <div class="pb__cta">
+                <div class="pb__aligned">
+                    <div class="avatars" aria-hidden="true">
+                        <span class="avatar"></span>
+                        <span class="avatar"></span>
+                        <span class="avatar"></span>
+                    </div>
+                    <p>Align with Businesses that <strong>Choose Quality</strong></p>
+                </div>
+                <a href="#" class="start-btn" aria-label="Start now">
+                    <span>Start Now</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Benefits tiles row, matching reference layout spacing and look -->
+    <section class="benefits" aria-label="Benefits you'll gain">
+        <div class="benefits__eyebrow"><span class="dot"></span><span>BENEFITS YOU'LL GAIN</span></div>
+        <div class="benefits__heading">
+            <h2>Unlock
+                Exclusive
+                <br>Advantages</h2>
+            <p>Systematic, flexible, cost‑effective solutions for all your chemical supply needs, ensuring consistent quality, timely deliveries and dedicated support.</p>
+        </div>
+
+        <div class="benefits__tiles">
+            <div class="tile dark-1"><h4>Fast
+                <br>Delivery</h4><p>Count on prompt, dependable delivery that ensures you never experience downtime.</p> 
+            </div>
+            <div class="tile dark-2"><h4>Fast
+                <br>Delivery</h4><p>Count on prompt, dependable delivery that ensures you never experience downtime.</p> 
+            </div>
+            <div class="tile dark-3"><h4>Fast
+                <br>Delivery</h4><p>Count on prompt, dependable delivery that ensures you never experience downtime.</p> 
+            </div>
+            <div class="tile dark-4"><h4>Fast
+                <br>Delivery</h4><p>Count on prompt, dependable delivery that ensures you never experience downtime.</p> 
+            </div>
+            <div class="tile dark-5"><h4>Fast
+                <br>Delivery</h4><p>Count on prompt, dependable delivery that ensures you never experience downtime.</p> 
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+

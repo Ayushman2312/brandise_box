@@ -1,0 +1,71 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Brandise Box LLP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/media/logo/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <div class="nx-bg">
+        <canvas id="blob-canvas" aria-hidden="true"></canvas>
+        <div class="nx-blur" aria-hidden="true"></div>
+    </div>
+
+    <main class="nx-root">
+        <header class="nx-header">
+            <h1 class="nx-chip">Ideas to Impact - Design. Build. <code>Scale.</code></h1>
+            <h1 class="nx-chip1 nx-chip--mobile">Ideas<code>Scale.</code></h1>
+            <a class="nx-byvercel" href="/" aria-label="Brandise home">
+                <img src="/media/logo/bbllp_logo.png" alt="Brandise logo">
+            </a>
+        </header>
+
+        <section class="nx-hero">
+            <div class="nx-hero-content">
+                <h1 class="nx-logo" aria-label="Next.js">Innovate. Elevate.</h1>
+                <h2 class="nx-chip nx-chip--mobile">Ideas to Impact - Design. Build. <code>Scale.</code></h2>
+            </div>
+        </section>
+
+        <section class="nx-links">
+            <a class="nx-card" href="{% url 'about' %}" rel="noreferrer">
+                <h3>About <span>→</span></h3>
+                <p>Explore the Next.js 13 playground.</p>
+            </a>
+            <a class="nx-card" href="{% url 'our_work' %}" rel="noreferrer">
+                <h3>Our work <span>→</span></h3>
+                <p>Explore the Next.js 13 playground.</p>
+            </a>
+            <a class="nx-card" href="{% url 'vision' %}" rel="noreferrer">
+                <h3>Vision <span>→</span></h3>
+                <p>Explore the Next.js 13 playground.</p>
+            </a>
+            <a class="nx-card" href="{% url 'blogs_press' %}" rel="noreferrer">
+                <h3>Blogs & Press <span>→</span></h3>
+                <p>Explore the Next.js 13 playground.</p>
+            </a>
+            <a class="nx-card" href="{% url 'contact' %}" rel="noreferrer">
+                <h3>Contact <span>→</span></h3>
+                <p>Explore the Next.js 13 playground.</p>
+            </a>
+        </section>
+
+        <div class="nx-slider-dots" role="tablist" aria-label="Slider navigation">
+            <button type="button" class="nx-dot is-active" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+            <button type="button" class="nx-dot" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="{% static 'js/blob.js' %}"></script>
+    <script src="{% static 'js/slider.js' %}"></script>
+</body>
+</html>

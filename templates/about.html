@@ -1,0 +1,103 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About • Brandise Box LLP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/media/logo/favicon.png" type="image/x-icon">
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+</head>
+<body class="about-body">
+    <main class="about-card">
+        <div class="about-content">
+            <div class="circle-lottie">
+                <dotlottie-wc src="https://lottie.host/8c2081dc-968c-4229-864e-43ac99be82ce/AksxYQnMq7.lottie" style="width: 500px;height: 500px" speed="1" autoplay loop></dotlottie-wc>
+            </div>
+
+            <h1 class="about-title">about</h1>
+            <p class="about-subtitle">OUR JOURNEY</p>
+            <p class="about-brand">BRANDISE BOX LLP</p>
+
+        </div>
+        <a href="#" class="about-cta" aria-label="Go">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+              </svg>
+        </a>
+    </main>
+    <section class="timeline" aria-hidden="true">
+        <div class="tl-card">
+            <div class="tl-track" data-index="0">
+                <article class="tl-slide">
+                    <div class="tl-inner">
+                        <h2 class="tl-title">Phase 1 – The Foundation</h2>
+                        <p class="tl-desc">Started as a specialized web design agency focused on building powerful online presences for businesses.</p>
+                        <div class="tl-year-row">
+                            <span class="tl-year">2016</span>
+                            <span class="tl-rule" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                </article>
+                <article class="tl-slide">
+                    <div class="tl-inner">
+                        <h2 class="tl-title">Phase 2 – Scaling Others</h2>
+                        <p class="tl-desc">Launched client projects, offering end-to-end production, marketing, and branding consulting.</p>
+                        <div class="tl-year-row">
+                            <span class="tl-year">2018</span>
+                            <span class="tl-rule" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                </article>
+                <article class="tl-slide">
+                    <div class="tl-inner">
+                        <h2 class="tl-title">Phase 3 – E‑commerce Success</h2>
+                        <p class="tl-desc">Ventured into e-commerce, became a best seller, and mastered digital marketplaces.</p>
+                        <div class="tl-year-row">
+                            <span class="tl-year">2020</span>
+                            <span class="tl-rule" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                </article>
+                <article class="tl-slide">
+                    <div class="tl-inner">
+                        <h2 class="tl-title">Phase 4 – Manufacturing</h2>
+                        <p class="tl-desc">Scaled operations into product manufacturing, creating innovative home improvement and convenience solutions.</p>
+                        <div class="tl-year-row">
+                            <span class="tl-year">2022</span>
+                            <span class="tl-rule" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                </article>
+                <article class="tl-slide">
+                    <div class="tl-inner">
+                        <h2 class="tl-title">Phase 5 – SaaS & Tech</h2>
+                        <p class="tl-desc">Built 1Matrix.io and a suite of tools to empower businesses with data, automation, and AI-driven insights.</p>
+                        <div class="tl-year-row">
+                            <span class="tl-year">2025</span>
+                            <span class="tl-rule" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <button class="tl-next" aria-label="Next"><a href="#" class="about-cta" aria-label="Go">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                  </svg>
+            </a></button>
+            <button class="tl-exit" aria-label="Back to about" title="Back">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+                  </svg>
+            </button>
+        </div>
+    </section>
+    <script src="{% static 'js/about.js' %}"></script>
+</body>
+</html>
+
+
