@@ -10,104 +10,109 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="icon" href="/media/logo/favicon.png" type="image/x-icon">
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+    <link rel="icon" href="/media/logo/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/about.css' %}">
 </head>
-<body class="about-body">
-    <main class="about-card">
-        <div class="about-content">
-            <div class="circle-lottie">
-                <dotlottie-wc src="https://lottie.host/8c2081dc-968c-4229-864e-43ac99be82ce/AksxYQnMq7.lottie" style="width: 500px;height: 500px" speed="1" autoplay loop></dotlottie-wc>
+<body>
+    {% include 'partials/nx_header.html' %}
+    {% include 'partials/nav.html' %}
+    <div class="about-body">
+        <main class="about-card">
+            <div class="about-content">
+                <div class="circle-lottie">
+                    <dotlottie-wc src="https://lottie.host/8c2081dc-968c-4229-864e-43ac99be82ce/AksxYQnMq7.lottie" style="width: 500px;height: 500px" speed="1" autoplay loop></dotlottie-wc>
+                </div>
+    
+                <h1 class="about-title">about</h1>
+                <p class="about-subtitle">OUR JOURNEY</p>
+                <p class="about-brand">BRANDISE BOX LLP</p>
+    
             </div>
-
-            <h1 class="about-title">about</h1>
-            <p class="about-subtitle">OUR JOURNEY</p>
-            <p class="about-brand">BRANDISE BOX LLP</p>
-
-        </div>
-        <a href="#" class="about-cta" aria-label="Go">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-              </svg>
-        </a>
-    </main>
-    <section class="timeline" aria-hidden="true">
-        <div class="tl-card">
-            <div class="tl-track" data-index="0">
-                <article class="tl-slide">
-                    <div class="tl-inner">
-                        <p class="tl-eyebrow">THE</p>
-                        <h2 class="tl-title">FOUNDATION</h2>
-                        <div class="tl-year-row">
-                            <span class="tl-year">2016</span>
-                            <span class="tl-rule" aria-hidden="true"></span>
+            <a href="#" class="about-cta" aria-label="Go">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                  </svg>
+            </a>
+        </main>
+        <section class="timeline" aria-hidden="true">
+            <div class="tl-card">
+                <div class="tl-track" data-index="0">
+                    <article class="tl-slide">
+                        <div class="tl-inner">
+                            <p class="tl-eyebrow">THE</p>
+                            <h2 class="tl-title">FOUNDATION</h2>
+                            <div class="tl-year-row">
+                                <span class="tl-year">2016</span>
+                                <span class="tl-rule" aria-hidden="true"></span>
+                            </div>
+                            <p class="tl-desc">Started as a specialized web design agency focused on building powerful online presences for businesses.</p>
                         </div>
-                        <p class="tl-desc">Started as a specialized web design agency focused on building powerful online presences for businesses.</p>
-                    </div>
-                </article>
-                <article class="tl-slide">
-                    <div class="tl-inner">
-                        <p class="tl-eyebrow">SCALING</p>
-                        <h2 class="tl-title">OTHERS</h2>
-                        <div class="tl-year-row">
-                            <span class="tl-year">2016 -</span>
-                            <span class="tl-rule" aria-hidden="true"></span>
+                    </article>
+                    <article class="tl-slide">
+                        <div class="tl-inner">
+                            <p class="tl-eyebrow">SCALING</p>
+                            <h2 class="tl-title">OTHERS</h2>
+                            <div class="tl-year-row">
+                                <span class="tl-year">2016 -</span>
+                                <span class="tl-rule" aria-hidden="true"></span>
+                            </div>
+                            <p class="tl-desc">Launched client projects, offering end-to-end production, marketing, and branding consulting.</p>
                         </div>
-                        <p class="tl-desc">Launched client projects, offering end-to-end production, marketing, and branding consulting.</p>
-                    </div>
-                </article>
-                <article class="tl-slide">
-                    <div class="tl-inner">
-                        <p class="tl-eyebrow">E‑COMMERCE</p>
-                        <h2 class="tl-title">SUCCESS</h2>
-                        <div class="tl-year-row">
-                            <span class="tl-year">2022</span>
-                            <span class="tl-rule" aria-hidden="true"></span>
+                    </article>
+                    <article class="tl-slide">
+                        <div class="tl-inner">
+                            <p class="tl-eyebrow">E‑COMMERCE</p>
+                            <h2 class="tl-title">SUCCESS</h2>
+                            <div class="tl-year-row">
+                                <span class="tl-year">2022</span>
+                                <span class="tl-rule" aria-hidden="true"></span>
+                            </div>
+                            <p class="tl-desc">Ventured into e-commerce, became a best seller, and mastered digital marketplaces.</p>
                         </div>
-                        <p class="tl-desc">Ventured into e-commerce, became a best seller, and mastered digital marketplaces.</p>
-                    </div>
-                </article>
-                <article class="tl-slide">
-                    <div class="tl-inner">
-                        <p class="tl-eyebrow">PRODUCT</p>
-                        <h2 class="tl-title">MANUFACTURING</h2>
-                        <div class="tl-year-row">
-                            <span class="tl-year">2023</span>
-                            <span class="tl-rule" aria-hidden="true"></span>
+                    </article>
+                    <article class="tl-slide">
+                        <div class="tl-inner">
+                            <p class="tl-eyebrow">PRODUCT</p>
+                            <h2 class="tl-title">MANUFACTURING</h2>
+                            <div class="tl-year-row">
+                                <span class="tl-year">2023</span>
+                                <span class="tl-rule" aria-hidden="true"></span>
+                            </div>
+                            <p class="tl-desc">Scaled operations into product manufacturing, creating innovative home improvement and convenience solutions.</p>
                         </div>
-                        <p class="tl-desc">Scaled operations into product manufacturing, creating innovative home improvement and convenience solutions.</p>
-                    </div>
-                </article>
-                <article class="tl-slide">
-                    <div class="tl-inner">
-                        <p class="tl-eyebrow">SAAS &</p>
-                        <h2 class="tl-title">TECH</h2>
-                        <div class="tl-year-row">
-                            <span class="tl-year">2025</span>
-                            <span class="tl-rule" aria-hidden="true"></span>
+                    </article>
+                    <article class="tl-slide">
+                        <div class="tl-inner">
+                            <p class="tl-eyebrow">SAAS &</p>
+                            <h2 class="tl-title">TECH</h2>
+                            <div class="tl-year-row">
+                                <span class="tl-year">2025</span>
+                                <span class="tl-rule" aria-hidden="true"></span>
+                            </div>
+                            <p class="tl-desc">Built 1Matrix.io and a suite of tools to empower businesses with data, automation, and AI-driven insights.</p>
                         </div>
-                        <p class="tl-desc">Built 1Matrix.io and a suite of tools to empower businesses with data, automation, and AI-driven insights.</p>
-                    </div>
-                </article>
-            </div>
-            <div class="tl-controls" aria-label="Timeline controls">
-                <button class="tl-prev" aria-label="Previous slide" title="Previous">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+                    </article>
+                </div>
+                <div class="tl-controls" aria-label="Timeline controls">
+                    <button class="tl-prev" aria-label="Previous slide" title="Previous">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+                        </svg>
+                    </button>
+                    <button class="tl-next" aria-label="Next slide" title="Next">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+                        </svg>
+                    </button>
+                </div>
+                <button class="tl-close" aria-label="Close timeline" title="Close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
                     </svg>
                 </button>
-                <button class="tl-next" aria-label="Next slide" title="Next">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
-                    </svg>
-                </button>
             </div>
-            <button class="tl-close" aria-label="Close timeline" title="Close">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
-                </svg>
-            </button>
-        </div>
-    </section>
+        </section>
+    </div>
     <script src="{% static 'js/about.js' %}"></script>
 </body>
 </html>

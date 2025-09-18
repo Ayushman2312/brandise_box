@@ -191,6 +191,7 @@ body{
     .timeline .tl-title{ font-size: 40px;}
     .tl-year{ font-size:12px; }
     .tl-desc{ font-size: 15px; }
+    .about-cta{ margin-bottom: 90px;}
     .tl-rule{ width:60%; }
 }
 
@@ -289,3 +290,55 @@ body{
 /* Reduced motion respect */
 .about-body.no-motion, .about-body.no-motion *{ transition: none !important; }
 
+
+/* Desktop-only layout for left lottie, centered content, right CTA */
+@media (min-width: 1024px){
+    .about-card{
+        max-width: none;
+        height: 100vh;
+        aspect-ratio: auto;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr minmax(520px, 1000px) min-content;
+        column-gap: 40px;
+        align-items: center;
+        justify-items: center;
+        padding: 0 220px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Ensure content is perfectly centered */
+    .about-content{
+        grid-column: 2;
+        text-align: center;
+        position: static; /* allow absolute lottie to anchor to .about-card */
+    }
+
+    /* Place CTA immediately to the right of centered content */
+    .about-cta{
+        grid-column: 3;
+        align-self: center;
+        justify-self: start;
+        margin: 0;
+        width: 64px;
+        height: 64px;
+    }
+
+    /* Make the lottie large and docked to the left side */
+    .circle-lottie{
+        position: absolute;
+        left: clamp(16px, 6vw, 72px);
+        top: 50%;
+        transform: translateY(-50%);
+        width: 500px;
+        height: 500px;
+        z-index: 0;
+        pointer-events: none; /* do not block interactions */
+    }
+
+    .circle-lottie dotlottie-wc{
+        width: 680px !important;
+        height: 680px !important;
+    }
+}

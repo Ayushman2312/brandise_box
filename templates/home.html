@@ -18,16 +18,10 @@
         <canvas id="blob-canvas" aria-hidden="true"></canvas>
         <div class="nx-blur" aria-hidden="true"></div>
     </div>
-
     <main class="nx-root">
-        <header class="nx-header">
-            <h1 class="nx-chip">Ideas to Impact - Design. Build. <code>Scale.</code></h1>
-            <h1 class="nx-chip1 nx-chip--mobile">Ideas<code>Scale.</code></h1>
-            <a class="nx-byvercel" href="/" aria-label="Brandise home">
-                <img src="/media/logo/bbllp_logo.png" alt="Brandise logo">
-            </a>
-        </header>
-
+        <div>
+            {% include 'partials/nx_header.html' %}
+        </div>
         <section class="nx-hero">
             <div class="nx-hero-content">
                 <h1 class="nx-logo" aria-label="Next.js">Innovate. Elevate.</h1>
@@ -38,23 +32,23 @@
         <section class="nx-links">
             <a class="nx-card" href="{% url 'about' %}" rel="noreferrer">
                 <h3>About <span>→</span></h3>
-                <p>Explore the Next.js 13 playground.</p>
+                <p>Learn about Brandise Box LLP</p>
             </a>
             <a class="nx-card" href="{% url 'our_work' %}" rel="noreferrer">
                 <h3>Our work <span>→</span></h3>
-                <p>Explore the Next.js 13 playground.</p>
+                <p>Explore our projects and success</p>
             </a>
             <a class="nx-card" href="{% url 'vision' %}" rel="noreferrer">
                 <h3>Vision <span>→</span></h3>
-                <p>Explore the Next.js 13 playground.</p>
+                <p>Discover our goals and roadmap</p>
             </a>
             <a class="nx-card" href="{% url 'blogs_press' %}" rel="noreferrer">
                 <h3>Blogs & Press <span>→</span></h3>
-                <p>Explore the Next.js 13 playground.</p>
+                <p>Insights, updates, and company news</p>
             </a>
             <a class="nx-card" href="{% url 'contact' %}" rel="noreferrer">
                 <h3>Contact <span>→</span></h3>
-                <p>Explore the Next.js 13 playground.</p>
+                <p>Connect with our team today</p>
             </a>
         </section>
 

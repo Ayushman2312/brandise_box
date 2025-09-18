@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="/media/logo/favicon.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="icon" href="/media/logo/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/blogs_press.css' %}?v={% now 'U' %}">
@@ -20,13 +21,9 @@
     </style>
 </head>
 <body>
+    {% include 'partials/nav.html' %}
+    {% include 'partials/nx_header.html' %}
     <main class="bp-root">
-        <header class="bp-header">
-            <a class="bp-logo" href="/" aria-label="Brandise home">
-                <img src="/media/logo/bbllp_logo.png" alt="Brandise logo">
-            </a>
-        </header>
-
         <section class="bp-viewport" aria-label="Blogs & Press cards">
             <div class="bp-left">
                 <h1 class="bp-title">Blogs & Press</h1>

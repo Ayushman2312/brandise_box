@@ -12,13 +12,8 @@
     <link rel="stylesheet" href="{% static 'css/contact.css' %}">
 </head>
 <body>
-    <header class="nx-header">
-        <h1 class="nx-chip">Ideas to Impact - Design. Build. <code>Scale.</code></h1>
-        <h1 class="nx-chip1 nx-chip--mobile">Ideas<code>Scale.</code></h1>
-        <a class="nx-byvercel" href="/" aria-label="Brandise home">
-            <img src="/media/logo/bbllp_logo.png" alt="Brandise logo">
-        </a>
-    </header>
+    {% include 'partials/nav.html' %}
+    {% include 'partials/nx_header.html' %}
     <main class="contact-root">
         <section class="contact-hero">
             <h1 class="contact-title">
@@ -29,24 +24,25 @@
         </section>
 
         <section class="contact-form-section">
-            <form class="contact-form" action="#" method="post">
+            <form class="contact-form" id="contactForm" action="#" method="post">
+                {% csrf_token %}
                 <div class="field-group">
                     <label class="label">Name<span class="req">*</span></label>
-                    <input type="text" class="input" placeholder="Hello..." required>
+                    <input type="text" name="name" class="input" placeholder="Hello..." required>
                 </div>
                 <div class="field-group">
                     <label class="label">Email<span class="req">*</span></label>
-                    <input type="email" class="input" placeholder="Where can we reply?" required>
+                    <input type="email" name="email" class="input" placeholder="Where can we reply?" required>
                 </div>
                 <div class="field-group">
                     <label class="label">
                         Mobile Number<span class="req">*</span></label>
-                    <input type="tel" class="input" placeholder="Your mobile number?" pattern="[0-9]{10}" title="Please enter a valid 10-digit mobile number" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                    <input type="tel" name="phone" class="input" placeholder="Your mobile number?" pattern="[0-9]{10}" title="Please enter a valid 10-digit mobile number" maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
                 </div>
 
                 <div class="field-group" style="padding-bottom: 24px;">
                     <label style="margin-bottom: 14px;" class="label">What's in your mind?<span class="req">*</span>    </label>
-                    <div class="chips" role="group" aria-label="Project type">
+                    <div class="chips" id="topicChips" role="group" aria-label="Project type">
                         <button type="button" class="chip is-selected">Web App</button>
                         <button type="button" class="chip">Website Design</button>
                         <button type="button" class="chip">Consultancy</button>
@@ -58,13 +54,14 @@
 
                 <div class="field-group">
                     <label class="label">Message<span class="req">*</span></label>
-                    <textarea class="textarea" placeholder="I want to build some..." required></textarea>
+                    <textarea name="message" class="textarea" placeholder="I want to build some..." required></textarea>
                 </div>
 
                 <div class="form-footer">
-                    <button type="submit" class="submit-btn">Submit <span aria-hidden>→</span></button>
+                    <button type="submit" id="submitBtn" class="submit-btn">Submit <span aria-hidden>→</span></button>
                 </div>
             </form>
+            <div id="formAlert" style="display:none;margin-top:12px;font-family:Inter,system-ui,-apple-system,sans-serif;font-size:14px;"></div>
         </section>
     </main>
 
@@ -73,6 +70,68 @@
     document.addEventListener('click', function(e){
         if(e.target.classList.contains('chip')){
             e.target.classList.toggle('is-selected');
+        }
+    });
+    
+    // AJAX form submission (no reload)
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const topicChips = document.getElementById('topicChips');
+    const formAlert = document.getElementById('formAlert');
+
+    function setAlert(type, text){
+        formAlert.style.display = 'block';
+        formAlert.style.padding = '10px 12px';
+        formAlert.style.borderRadius = '10px';
+        formAlert.style.border = '1px solid ' + (type === 'success' ? '#DCFCE7' : '#FEE2E2');
+        formAlert.style.background = type === 'success' ? '#F0FDF4' : '#FEF2F2';
+        formAlert.style.color = type === 'success' ? '#166534' : '#991B1B';
+        formAlert.textContent = text;
+    }
+
+    function getCookie(name){
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        setAlert('', '');
+        formAlert.style.display = 'none';
+
+        const name = form.querySelector('input[name="name"]').value.trim();
+        const email = form.querySelector('input[name="email"]').value.trim();
+        const phone = form.querySelector('input[name="phone"]').value.trim();
+        const message = form.querySelector('textarea[name="message"]').value.trim();
+        const topics = Array.from(topicChips.querySelectorAll('.chip.is-selected')).map(b => b.textContent.trim());
+
+        submitBtn.disabled = true;
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = 'Sending…';
+
+        try{
+            const res = await fetch('/api/contact/submit/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRFToken': getCookie('csrftoken') || ''
+                },
+                body: JSON.stringify({ name, email, phone, topics, message })
+            });
+            const data = await res.json();
+            if(!res.ok || !data.ok){
+                throw new Error(data.message || 'Something went wrong.');
+            }
+            setAlert('success', data.message || 'Sent!');
+            form.reset();
+            topicChips.querySelectorAll('.chip.is-selected').forEach(c => c.classList.remove('is-selected'));
+        }catch(err){
+            setAlert('error', err.message || 'Failed to send. Please try again.');
+        }finally{
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
         }
     });
     </script>

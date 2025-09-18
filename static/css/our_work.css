@@ -193,22 +193,22 @@ body{margin:0;background:#f5f7fb}
 .benefits__tiles .tile.soft{background:#e8e9ff;color:#0f172a}
 
 /* Distinctive color variants for all five tiles */
-.benefits__tiles .tile.dark-1{background:rgba(0,0,0,0.7);color:#ffffff}
+.benefits__tiles .tile.dark-1{background:black;color:#ffffff}
 .benefits__tiles .tile.dark-1 h4{color:#f8fafc}
-.benefits__tiles .tile.dark-1 p{color:#e2e8f0}
-.benefits__tiles .tile.dark-2{background:#e0e0e0;color:#334155}
-.benefits__tiles .tile.dark-2 h4{color:#1e293b}
-.benefits__tiles .tile.dark-2 p{color:#334155}
-.benefits__tiles .tile.dark-3{background:#537962;color:#f0fdf4}
+.benefits__tiles .tile.dark-1 p{color:#e2e8f0;font-size:13px;}
+.benefits__tiles .tile.dark-2{background:#7D46EB;color:#ffffff}
+.benefits__tiles .tile.dark-2 h4{color:#ffffff;}
+.benefits__tiles .tile.dark-2 p{color:white;font-size:13px;}
+.benefits__tiles .tile.dark-3{background:#CCA133;color:#ffffff}
 .benefits__tiles .tile.dark-3 h4{color:#ffffff}
-.benefits__tiles .tile.dark-3 p{color:#ecfdf5}
-.benefits__tiles .tile.dark-4{background:#838463;color:#f0fdf4}
-.benefits__tiles .tile.dark-4 h4{color:#ffffff}
-.benefits__tiles .tile.dark-4 p{color:#ecfdf5}
-.benefits__tiles .tile.dark-5{background:#fee0ea;color:#0c4a6e}
-.benefits__tiles .tile.dark-5 h4{color:#0369a1}
-.benefits__tiles .tile.dark-5 p{color:#0c4a6e}
-
+.benefits__tiles .tile.dark-3 p{color:#ecfdf5;font-size:13px;}
+.benefits__tiles .tile.dark-4{background:#F0F0F0;color:black}
+.benefits__tiles .tile.dark-4 h4{color:black}
+.benefits__tiles .tile.dark-4 p{color:black;font-size:13px;}
+.benefits__tiles .tile.dark-5{background:#4F2B4F;color:#ffffff}
+.benefits__tiles .tile.dark-5 h4{color:#ffffff}
+.benefits__tiles .tile.dark-5 p{color:white;font-size:13px;}
+.benefits__tiles .tile {display: flex;justify-content: space-between;flex-direction: column;gap: 0px;}
 
 @media (min-width:960px){
   .benefits{grid-template-columns:1fr}

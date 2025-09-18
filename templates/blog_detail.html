@@ -8,10 +8,13 @@
     <link rel="icon" href="/media/logo/favicon.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="/media/logo/favicon.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/blog_detail.css' %}?v={% now 'U' %}">
 </head>
 <body>
+    {% include 'partials/nav.html' %}
+    {% include 'partials/nx_header.html' %}
     <main class="bd-root">
         <section class="bd-split">
             <div class="bd-left" aria-hidden="true">

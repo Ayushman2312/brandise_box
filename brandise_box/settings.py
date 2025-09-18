@@ -139,3 +139,13 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Email configuration (Gmail SMTP)
+# Set environment variables EMAIL_HOST_USER and EMAIL_HOST_PASSWORD for production
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'neverreplyhim@gmail.com'
+EMAIL_HOST_PASSWORD = 'ttdb qcmr labb uppz '
+DEFAULT_FROM_EMAIL = 'neverreplyhim@gmail.com'

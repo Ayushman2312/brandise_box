@@ -1,0 +1,20 @@
+/* Shared header styles for non-home pages */
+/* Keep visuals consistent with home.css without requiring nx-root wrapper */
+
+.nx-header{position:relative;display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1100px;margin:16px auto 0;padding:0 24px;z-index:1}
+.nx-byvercel{position:static;color:#6b7280;text-decoration:none;font-size:clamp(14px,1.2vw,16px);display:inline-flex;align-items:center}
+.nx-byvercel img{height:36px;width:auto;display:block}
+
+.nx-chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.6);border:1px solid rgba(15,23,42,.08);padding:8px 12px;margin:0;font-weight:400;border-radius:9999px;font-size:clamp(12px,1.1vw,14px);color:#111827}
+.nx-chip1{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.6);border:1px solid rgba(15,23,42,.08);padding:8px 12px;margin:0;font-weight:400;border-radius:9999px;font-size:clamp(12px,1.1vw,14px);color:#111827}
+.nx-chip code,.nx-chip1 code{font-family:ui-monospace,Menlo,Consolas,monospace;background:#000;color:#fff;border-radius:6px;padding:2px 6px;font-size:clamp(11px,1vw,13px)}
+.nx-chip--mobile{display:none}
+
+@media (max-width: 640px){
+  .nx-chip{display:none}
+  .nx-chip--mobile{display:inline-flex;margin-top:1px;font-size:clamp(13px,1.2vw,15px)}
+  .nx-byvercel{margin-left:auto;transform:scale(0.8)}
+  .nx-header{padding:0 16px;margin-top:12px}
+}
+
+
