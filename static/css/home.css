@@ -8,8 +8,8 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,C
 .nx-bg{position:fixed;inset:0;z-index:0;overflow:hidden}
 #blob-canvas{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:55vmin;height:55vmin;pointer-events:none;filter:blur(6px) saturate(140%);will-change:transform}
 .nx-blur{position:absolute;inset:-40px;backdrop-filter:blur(26px)}
-.nx-root{min-height:100dvh;display:flex;flex-direction:column;justify-content:space-between;}
-.nx-header{position:relative;display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1100px;margin:0 auto;z-index:1}
+.nx-root{min-height:100dvh;display:flex;flex-direction:column;justify-content:space-between;padding:0 24px;}
+.nx-header{position:relative;display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1100px;margin:16px auto 0;z-index:1}
 .nx-byvercel{position:static;color:#6b7280;text-decoration:none;font-size:clamp(14px,1.2vw,16px);display:inline-flex;align-items:center}
 .nx-byvercel img{height:36px;width:auto;display:block}
 
