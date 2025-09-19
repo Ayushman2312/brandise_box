@@ -5,7 +5,7 @@ html,body{height:100%}
 body{margin:0;background:var(--bg);color:var(--text);font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
 
 .bd-root{min-height:100vh}
-
+.bd-back{display:none;}
 .bd-split{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
 
 .bd-left{position:sticky;top:0;height:100vh;overflow:hidden;background:#f7f7f7}
@@ -39,19 +39,28 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:'Montserrat',sy
   :root{--mobile-image-h:38vh;--mobile-header-h:120px}
   .bd-left{height:var(--mobile-image-h);position:fixed;top:0;left:0;right:0;z-index:1}
   .bd-left img{height:100%;width:100%;object-fit:cover;}
-  .bd-title{font-size:23px}
+  .bd-title{font-size:16px}
   .bd-lede .bd-drop{font-size:48px}
   .bd-header{position:fixed;top:var(--mobile-image-h);left:0;right:0;background:var(--bg);padding:12px 22px 14px;z-index:2;border-bottom:1px solid #eee}
   .bd-kicker{margin:0 0 6px}
   .bd-right{height:100vh;overflow:auto;padding:calc(var(--mobile-image-h) + var(--mobile-header-h)) 0 env(safe-area-inset-bottom, 0)}
-  .bd-content{max-width:680px;margin:0 auto;padding:50px 22px 0}
-  .bd-share-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 12px;border-radius:9999px;border:1px solid #e5e7eb;background:rgba(255,255,255,.92);backdrop-filter:saturate(150%) blur(6px);color:#111;cursor:pointer;font-size:13px;position:fixed;right:calc(max(12px, env(safe-area-inset-right, 0)));bottom:calc(93vh - var(--mobile-image-h));z-index:3}
+  .bd-content{max-width:680px;margin:0 auto;padding:0px 22px;font-size:14px;}
+  /* Actions cluster (fixed, right-aligned); keeps share position unchanged */
+  .bd-actions{position:fixed;right:calc(max(12px, env(safe-area-inset-right, 0)));bottom:calc(93vh - var(--mobile-image-h));z-index:3;display:flex;gap:8px;align-items:center}
+  .bd-share-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 12px;border-radius:9999px;border:1px solid #e5e7eb;background:rgba(255,255,255,.92);backdrop-filter:saturate(150%) blur(6px);color:#111;cursor:pointer;font-size:13px;position:static}
   .bd-share-btn:active{transform:scale(.98)}
   .bd-share-toast{display:inline-block;margin-right:10px;font-size:12px;color:#16a34a}
   /* Align share controls to the far right below the title */
   .bd-header{display:flex;flex-direction:column}
-  .bd-share-btn{align-self:flex-end}
+  .bd-actions{align-self:flex-end}
   .bd-share-toast{align-self:flex-end}
+
+  /* Hide global nav only on mobile within blog detail */
+  .nav-root{display:none !important}
+
+  /* Back button sits left to share */
+  .bd-back{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:9999px;border:1px solid #e5e7eb;background:rgba(255,255,255,.92);backdrop-filter:saturate(150%) blur(6px);color:#111;text-decoration:none;font-size:13px;line-height:1;box-shadow:0 1px 2px rgba(0,0,0,.06)}
+  .bd-back svg{width:18px;height:18px}
 }
 
 

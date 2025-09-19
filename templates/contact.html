@@ -10,14 +10,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link rel="icon" href="/media/logo/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <style>
+        .quicksand{
+            font-family: 'Quicksand', sans-serif;
+        }
+    </style>
 </head>
 <body>
     {% include 'partials/nav.html' %}
-    {% include 'partials/nx_header.html' %}
     <main class="contact-root">
+        <header class="nx-header quicksand">
+            <h1 class="nx-chip">Ideas to Impact - Design. Build. <code>Scale.</code></h1>
+            <h1 class="nx-chip1 nx-chip--mobile">Ideas<code>Scale.</code></h1>
+            <a class="nx-byvercel" href="/" aria-label="Brandise home">
+                <img src="/media/logo/bbllp_logo.png" alt="Brandise logo">
+            </a>
+        </header>
         <section class="contact-hero">
             <h1 class="contact-title">
-                <span class="fade">Say Hi! <span style="color:black;">and tell</span></span>
+                <span class="fade">Say Hi! <span style="color:black;">and tell</span><br></span>
                 <span class="main">us about your<br>idea</span>
             </h1>
             <p class="contact-sub">Have a nice works? Reach out and let's chat.</p>

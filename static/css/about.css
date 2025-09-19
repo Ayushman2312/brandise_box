@@ -73,6 +73,31 @@ body{
     .circle-lottie{ width: 320px; height: 320px; }
 }
 
+/* Ensure perfect stacked hero on tablets and mobiles */
+@media (max-width: 1023.98px) and (min-width: 769px) {
+    /* Create safe space for fixed top and bottom nav on small screens */
+    .about-card{ padding-top: 52px; padding-bottom: 110px; }
+    /* Keep CTA visually bottom-centered but clear of bottom nav */
+    .about-cta{ margin-bottom: 12px; width: 56px; height: 56px; }
+}
+
+/* Tablet sizing of the lottie and heading to match mock */
+@media (min-width: 640px) and (max-width: 1023.98px){
+    .circle-lottie{ width: 420px; height: 420px; }
+    .about-title{ font-size: 56px; }
+}
+
+/* Small phones: slightly larger lottie and extra bottom room */
+@media (max-width: 639.98px) and (min-width: 410px) {
+    .about-card{ padding-top: 46px; padding-bottom: 96px; }
+    .about-content{ transform: translateY(-8px); }
+    .circle-lottie{ width: 340px; height: 340px; }
+}
+
+@media (max-width: 394px){
+    .circle-lottie{ width: 300px; height: 300px; }
+}
+
 .about-title{
     margin-top: 24px;
     margin-bottom: 0;
@@ -101,17 +126,19 @@ body{
     letter-spacing: .18em;
     color: #111;
 }
-
 .about-cta{
-    margin-top: auto;
+    margin-top: 50px;
     margin-bottom: 2px;
     width: 50px;
     height: 50px;
     display: flex;
+    flex: 0 0 auto;
     background-color: white;
     align-items: center;
     justify-content: center;
     border-radius: 100%;
+    aspect-ratio: 1 / 1;
+    line-height: 0;
     font-weight: 900;
     color: #111;
     text-decoration: none;
@@ -141,7 +168,12 @@ body{
     z-index: 40;
     pointer-events: none; /* allow clicking about-cta when hidden */
 }
-
+@media (min-width: 1124px) and (max-width: 2000px){
+    .timeline .tl-card{padding: 70px;}
+}
+@media (max-width: 344px) and (min-width: 320px){
+    .timeline .tl-title{font-size: 30px;}
+}
 .tl-card{
     width: 100%;
     height: 100%;
@@ -149,7 +181,7 @@ body{
     background: #000;
     display: flex;
     align-items: center;
-    padding: 70px;
+    padding: 70px 0;
     position: relative;
     overflow: hidden;
     transition: background-color .6s ease;
@@ -186,18 +218,22 @@ body{
 .tl-card.theme-idx-3 .tl-desc{ color:#000000; }
 .tl-card.theme-idx-3 .tl-rule{ background:#000000; opacity:1; }
 
-@media (max-width: 520px){
+@media (max-width: 520px) and (min-width: 410px) {
     .tl-eyebrow{ font-size: 20px; letter-spacing:.12em; }
     .timeline .tl-title{ font-size: 40px;}
     .tl-year{ font-size:12px; }
     .tl-desc{ font-size: 15px; }
-    .about-cta{ margin-bottom: 90px;}
+    .about-cta{width: 40px; height: 40px;}
     .tl-rule{ width:60%; }
 }
 
 /* Desktop vs Mobile sizing for the inner card */
-@media (min-width: 900px){
+@media (min-width: 900px) and (max-width: 1024px){
     .tl-card{ border-radius: 28px; }
+}
+@media screen and (max-width:393px){
+    .about-card{margin-bottom: 150px;}
+    .circle-lottie{width: 250px; height: 250px;}
 }
 @media (max-width: 640px){
     .tl-card{ padding: 3px; overflow:hidden; }
@@ -205,6 +241,9 @@ body{
     .tl-slide{ align-items:center; justify-content:center; }
     .tl-title{ font-size: 30px; }
     .tl-eyebrow{ font-size: 22px; }
+    .about-card{margin-bottom: 100px;}
+    /* .circle-lottie{width: 300px; height: 300px;} */
+    .about-cta{margin-top: 30px;}
     .tl-rule{ width:65%; height:2px; }
 }
 
@@ -257,7 +296,7 @@ body{
 .timeline.is-end .tl-next{ opacity:.35; pointer-events:none; }
 
 /* Mobile: center the controls at bottom */
-@media (max-width: 640px){
+@media (max-width: 640px) and (min-width: 415px){
     .tl-controls{
         left: 50%;
         bottom: 16px;
@@ -267,7 +306,9 @@ body{
         right: 16px; /* stays right */
     }
 }
-
+@media (max-width: 414px){
+    .tl-title{font-size: 35px;}
+}
 /* Desktop/Large: move close to top-right */
 @media (min-width: 1024px){
     .tl-controls{
@@ -299,11 +340,13 @@ body{
         aspect-ratio: auto;
         width: 100%;
         display: grid;
-        grid-template-columns: 1fr minmax(520px, 1000px) min-content;
+        /* Make columns flexible at smaller desktop widths while preserving the composition */
+        grid-template-columns: minmax(260px, 1fr) minmax(520px, 1000px) min-content;
         column-gap: 40px;
         align-items: center;
         justify-items: center;
-        padding: 0 220px;
+        /* Use responsive side gutters so 1024px wide viewports don't overflow */
+        padding: 0 clamp(16px, 8vw, 220px);
         position: relative;
         overflow: hidden;
     }
@@ -340,5 +383,27 @@ body{
     .circle-lottie dotlottie-wc{
         width: 680px !important;
         height: 680px !important;
+    }
+}
+
+/* Fine-tune layout specifically for 1024–1279px to perfectly match the mock */
+@media (min-width: 1024px) and (max-width: 1279.98px){
+    .about-card{
+        grid-template-columns: minmax(220px, 1fr) minmax(480px, 720px) min-content;
+        column-gap: 32px;
+        padding: 0 clamp(16px, 7vw, 140px);
+    }
+    .circle-lottie{
+        left: clamp(12px, 5vw, 56px);
+        width: 480px;
+        height: 480px;
+    }
+    .circle-lottie dotlottie-wc{
+        width: 620px !important;
+        height: 620px !important;
+    }
+    .about-cta{
+        width: 60px;
+        height: 60px;
     }
 }

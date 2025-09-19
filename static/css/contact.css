@@ -33,7 +33,7 @@ body{
 .nx-chip1 code{font-family:ui-monospace,Menlo,Consolas,monospace;background:#000;color:#fff;border-radius:6px;padding:2px 6px;font-size:clamp(11px,1vw,13px)}
 .nx-chip--mobile{display:none}
 
-.contact-root{max-width:1080px;margin:0 auto;padding:48px 24px 96px}
+.contact-root{max-width:1100px;margin:0 auto;}
 
 .contact-hero{padding-top:8px}
 .contact-title{line-height:1.05;margin:24px 0 12px;font-weight:800;letter-spacing:-0.02em}
@@ -105,7 +105,7 @@ body{
   .contact-title{margin-top:8px;text-align:center;line-height:1.08}
   /* Keep "Say Hi! and tell" on one line */
   .contact-title .fade,.contact-title .main{display:inline;white-space:nowrap}
-  .contact-title .fade{font-size:46px;margin-right:6px}
+  .contact-title .fade{font-size:58px;margin-right:6px}
   .contact-title .main{font-size:58px}
   .contact-sub{text-align:center;margin-top:10px;}
 }

@@ -14,7 +14,6 @@
 </head>
 <body>
     {% include 'partials/nav.html' %}
-    {% include 'partials/nx_header.html' %}
     <main class="bd-root">
         <section class="bd-split">
             <div class="bd-left" aria-hidden="true">
@@ -29,12 +28,20 @@
                 <header class="bd-header">
                     <p class="bd-kicker">Journal</p>
                     <h1 class="bd-title">{{ blog.title }}</h1>
-                    <button id="bd-share-btn" class="bd-share-btn" type="button" aria-label="Share this post" title="Share">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M18 8a3 3 0 1 0-2.816-4H15a3 3 0 0 0 .184 1.036L8.91 8.12a3 3 0 0 0-1.82-.62 3 3 0 1 0 2.816 4H10a3 3 0 0 0-.184-1.036l6.274-3.084c.519.548 1.249.9 2.05.9Z" fill="currentColor"/>
-                            <path d="M18 16a3 3 0 0 0-2.05.9l-6.274-3.084A3 3 0 0 0 10 12h-.094A3 3 0 1 0 8.09 16.5c.68 0 1.3-.227 1.82-.62L16.184 19A3 3 0 1 0 18 16Z" fill="currentColor"/>
-                        </svg>
-                    </button>
+                    <div class="bd-actions">
+                        <a href="{% url 'blogs_press' %}" class="bd-back" aria-label="Back to Blogs & Press">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>Back</span>
+                        </a>
+                        <button id="bd-share-btn" class="bd-share-btn" type="button" aria-label="Share this post" title="Share">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M18 8a3 3 0 1 0-2.816-4H15a3 3 0 0 0 .184 1.036L8.91 8.12a3 3 0 0 0-1.82-.62 3 3 0 1 0 2.816 4H10a3 3 0 0 0-.184-1.036l6.274-3.084c.519.548 1.249.9 2.05.9Z" fill="currentColor"/>
+                                <path d="M18 16a3 3 0 0 0-2.05.9l-6.274-3.084A3 3 0 0 0 10 12h-.094A3 3 0 1 0 8.09 16.5c.68 0 1.3-.227 1.82-.62L16.184 19A3 3 0 1 0 18 16Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                    </div>
                     <span id="bd-share-toast" class="bd-share-toast" aria-live="polite" role="status"></span>
                 </header>
 

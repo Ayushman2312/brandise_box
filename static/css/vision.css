@@ -11,12 +11,18 @@
 }
 
 *{box-sizing:border-box}
-html,body{height:100vh; overflow:hidden}
+html,body{height:100vh;}
 body{
     margin:0;
     font-family:"Quicksand", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
     background:white;
     color:var(--text);
+}
+@media (max-width: 520px) {
+    .v-panel{margin-bottom: 30px;}
+}
+@media (min-width: 1024px) {
+    .v-wrapper{overflow: hidden;}
 }
 
 .v-wrapper{
