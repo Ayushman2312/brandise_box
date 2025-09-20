@@ -17,4 +17,6 @@
   .nx-header{padding:0 16px;margin-top:12px}
 }
 
-
+@media (max-width:1024px) and (min-width:641px){
+  .nx-header{padding:0 16px;}
+}

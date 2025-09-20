@@ -28,16 +28,31 @@ class ContactView(TemplateView):
 
 class ContactSubmitView(View):
     def post(self, request, *args, **kwargs):
-        try:
-            payload = json.loads(request.body.decode('utf-8'))
-        except Exception:
-            return JsonResponse({'ok': False, 'message': 'Invalid request body'}, status=400)
-
-        name = (payload.get('name') or '').strip()
-        email = (payload.get('email') or '').strip()
-        phone = (payload.get('phone') or '').strip()
-        topics = payload.get('topics') or []
-        message = (payload.get('message') or '').strip()
+        # Support both JSON and multipart/form-data submissions
+        content_type = (request.META.get('CONTENT_TYPE') or '').lower()
+        if 'application/json' in content_type:
+            try:
+                payload = json.loads(request.body.decode('utf-8'))
+            except Exception:
+                return JsonResponse({'ok': False, 'message': 'Invalid request body'}, status=400)
+            name = (payload.get('name') or '').strip()
+            email = (payload.get('email') or '').strip()
+            phone = (payload.get('phone') or '').strip()
+            topics = payload.get('topics') or []
+            message = (payload.get('message') or '').strip()
+            resume_file = None
+        else:
+            name = (request.POST.get('name') or '').strip()
+            email = (request.POST.get('email') or '').strip()
+            phone = (request.POST.get('phone') or '').strip()
+            # topics may arrive as JSON string
+            raw_topics = request.POST.get('topics')
+            try:
+                topics = json.loads(raw_topics) if raw_topics else []
+            except Exception:
+                topics = [t.strip() for t in (raw_topics or '').split(',') if t.strip()]
+            message = (request.POST.get('message') or '').strip()
+            resume_file = request.FILES.get('resume')
 
         # Basic validation
         if not name or not email or not phone or not message:
@@ -66,6 +81,32 @@ class ContactSubmitView(View):
         try:
             msg = EmailMultiAlternatives(subject, text_content, from_email, [to_email])
             msg.attach_alternative(html_content, 'text/html')
+            # Attach resume when Career is selected and file provided
+            if any(str(t).strip().lower() == 'career' for t in (topics or [])):
+                # Enforce presence for career
+                if resume_file is None:
+                    return JsonResponse({'ok': False, 'message': 'Resume is required for Career inquiries.'}, status=400)
+                # Basic validation: size <= 5MB, allowed extensions
+                allowed_ext = {'.pdf', '.doc', '.docx', '.rtf', '.txt'}
+                filename = getattr(resume_file, 'name', 'resume')
+                import os
+                ext = os.path.splitext(filename)[1].lower()
+                if ext not in allowed_ext:
+                    return JsonResponse({'ok': False, 'message': 'Unsupported resume format. Allowed: PDF, DOC, DOCX, RTF, TXT.'}, status=400)
+                max_bytes = 5 * 1024 * 1024
+                if getattr(resume_file, 'size', 0) > max_bytes:
+                    return JsonResponse({'ok': False, 'message': 'Resume file is too large (max 5MB).'}, status=400)
+                # Guess content type
+                content_type = 'application/octet-stream'
+                if ext == '.pdf':
+                    content_type = 'application/pdf'
+                elif ext in {'.doc', '.docx'}:
+                    content_type = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+                elif ext == '.rtf':
+                    content_type = 'application/rtf'
+                elif ext == '.txt':
+                    content_type = 'text/plain'
+                msg.attach(filename, resume_file.read(), content_type)
             msg.send(fail_silently=False)
         except Exception as e:
             return JsonResponse({'ok': False, 'message': 'Failed to send email. Please try again later.'}, status=500)
